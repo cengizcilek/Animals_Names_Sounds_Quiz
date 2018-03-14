@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Animals_Names_Sounds_Quiz</string>
+    <string name="final_message">Congratulations</string>
+    <string name="final_message_correct_out_of">correct out of 8</string>
+    <string name="correct_number">correct out of 8</string>
+    <string name="congratulations">Congratulations You Have Finished</string>
+    <string name="name_of_the_player">Name of the Player</string>
+    <string name="start">Start</string>
+    <string name="what_is_the_name_of_this_animal">What is the name of This Animal</string>
+    <string name="tiger">Tiger</string>
+    <string name="elephant">Elephant</string>
+    <string name="dolphin">Dolphin</string>
+    <string name="sound">Sound</string>
+    <string name="previous">Previous</string>
+    <string name="questionNumber">1</string>
+    <string name="next">Next</string>
+    <string name="share_your_score">Share Your Score</string>
+    <string name="try_again">Try Again</string>
+</resources>
