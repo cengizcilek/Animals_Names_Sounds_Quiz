@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         /**
-         * This sends the initial value of qnumber to expecting methods for showing the values correctly on the startup.
+         * This sends the initial value of qnumber to expecting methods
+         * for showing the inital values correctly on the startup.
          */
 
         displayQuNo(qnumber);
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method is to organize the acton of the START button. when clicked
-     * checks if the name netered and also hides the opening screen + makes quiz screen visible
+     * checks if the player name entered and also hides the opening screen + makes quiz screen visible
      */
     public void startGame(View view) {
 
@@ -126,12 +127,12 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method hides the opening and quiz screen when reaching question no 8 and makes final screen visible
+     * also send the results to the final screen
      */
 
     private void finalScreen(int questionNo) {
 
-        if(questionNo >=9)
-        {
+        if (questionNo >= 9) {
 
             View openscrnEnd = (View) findViewById(R.id.opening_screen);
             openscrnEnd.setVisibility(View.INVISIBLE);
@@ -141,6 +142,8 @@ public class MainActivity extends AppCompatActivity {
 
             View finalVsb = (View) findViewById(R.id.final_screen);
             finalVsb.setVisibility(View.VISIBLE);
+
+            displayFnal(namePlayer, noCorrectAnswer);
 
         }
     }
@@ -153,9 +156,9 @@ public class MainActivity extends AppCompatActivity {
 
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
         i.putExtra(Intent.EXTRA_SUBJECT, "Animals Quiz Result For " + namePlayer);
-        i.putExtra(Intent.EXTRA_TEXT   , namePlayer+ " Answered " + noCorrectAnswer + " questions correctly" + "\n out of 8 difficult questions");
+        i.putExtra(Intent.EXTRA_TEXT, namePlayer + " Answered " + noCorrectAnswer + " questions correctly" + "\n out of 8 difficult questions");
         try {
             startActivity(Intent.createChooser(i, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
@@ -167,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the next button is clicked.
      */
     public void nextPicture(View view) {
-        if (qnumber >=9) {
-            displayFnal(namePlayer,noCorrectAnswer);
+        if (qnumber >= 9) {
+            displayFnal(namePlayer, noCorrectAnswer);
             return;
         }
         qnumber = qnumber + 1;
@@ -260,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
     public void displayFnal(String namePlayer, int noCorrectAnswer) {
         TextView tv = (TextView) findViewById(
                 R.id.final_message);
-        tv.setText(getString(R.string.final_message) + namePlayer + noCorrectAnswer + getString(R.string.correct_number));
+        tv.setText(getString(R.string.final_message) + "\n" + namePlayer + "\n" + noCorrectAnswer + " " + getString(R.string.correct_number));
 
     }
 
@@ -271,7 +274,6 @@ public class MainActivity extends AppCompatActivity {
     private void ChangeDisplayPic(int questionNo) {
         ImageView questionPic = (ImageView) findViewById(
                 R.id.quizpic_view);
-
         Button answerTextA = (Button) findViewById(
                 R.id.answerA_button);
         Button answerTextB = (Button) findViewById(
@@ -279,65 +281,58 @@ public class MainActivity extends AppCompatActivity {
         Button answerTextC = (Button) findViewById(
                 R.id.answerC__button);
 
-        String One="Tiger";
-        String Two="Bear";
-        String Three="Dolphin";
-        String Four="Dog";
-        String Five="Cat";
-        String Six="Elephant";
-        String Seven="Lion";
-        String Eight="Horse";
+        String One = "Tiger";
+        String Two = "Bear";
+        String Three = "Dolphin";
+        String Four = "Dog";
+        String Five = "Cat";
+        String Six = "Elephant";
+        String Seven = "Lion";
+        String Eight = "Horse";
 
-        if(questionNo==1)
-        {
+        if (questionNo == 1) {
             questionPic.setImageResource(R.drawable.img_0);
             answerTextA.setText(One);
             answerTextB.setText(Six);
             answerTextC.setText(Three);
         }
 
-        if(questionNo==2)
-        {
+        if (questionNo == 2) {
             questionPic.setImageResource(R.drawable.img_1);
             answerTextA.setText(Four);
             answerTextB.setText(Two);
             answerTextC.setText(Five);
         }
 
-        if(questionNo==3)
-        {
+        if (questionNo == 3) {
             questionPic.setImageResource(R.drawable.img_2);
             answerTextA.setText(Three);
             answerTextB.setText(Six);
             answerTextC.setText(Eight);
         }
 
-        if(questionNo==4)
-        {
+        if (questionNo == 4) {
             questionPic.setImageResource(R.drawable.img_3);
             answerTextA.setText(Five);
             answerTextB.setText(Four);
             answerTextC.setText(Two);
         }
 
-        if(questionNo==5)
-        {
+        if (questionNo == 5) {
             questionPic.setImageResource(R.drawable.img_4);
             answerTextA.setText(Three);
             answerTextB.setText(Six);
             answerTextC.setText(Five);
         }
 
-        if(questionNo==6)
-        {
+        if (questionNo == 6) {
             questionPic.setImageResource(R.drawable.img_5);
             answerTextA.setText(Six);
             answerTextB.setText(Four);
             answerTextC.setText(Seven);
         }
 
-        if(questionNo==7)
-        {
+        if (questionNo == 7) {
             questionPic.setImageResource(R.drawable.img_6);
             answerTextA.setText(Three);
             answerTextB.setText(Five);
@@ -345,8 +340,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if(questionNo==8)
-        {
+        if (questionNo == 8) {
             questionPic.setImageResource(R.drawable.img_7);
             answerTextA.setText(One);
             answerTextB.setText(Eight);
@@ -356,55 +350,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method plays the sound os animals.
+     * This method plays the sound of animals.
      */
     private void animalSounds(int questionNo) {
 
 
-        if(questionNo==1)
-        {
+        if (questionNo == 1) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.tiger);
             mp.start();
         }
 
-        if(questionNo==2)
-        {
+        if (questionNo == 2) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.bear);
             mp.start();
         }
 
-        if(questionNo==3)
-        {
+        if (questionNo == 3) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.dolphin);
             mp.start();
         }
 
-        if(questionNo==4)
-        {
+        if (questionNo == 4) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.dog);
             mp.start();
         }
 
-        if(questionNo==5)
-        {
+        if (questionNo == 5) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.cat);
             mp.start();
         }
 
-        if(questionNo==6)
-        {
+        if (questionNo == 6) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.elephant);
             mp.start();
         }
 
-        if(questionNo==7)
-        {
+        if (questionNo == 7) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.lion);
             mp.start();
         }
 
-        if(questionNo==8)
-        {
+        if (questionNo == 8) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.horse);
             mp.start();
         }
@@ -413,25 +399,24 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method displays the responses to correct and wrong answers.
-     * Also delays the response for wrong and right answers
+     * Also delays the app's response for wrong and right answers
      */
-    private void answers(String answer,int questionNo) {
+    private void answers(String answer, int questionNo) {
         ImageView questionPic = (ImageView) findViewById(
                 R.id.quizpic_view);
 
         int TIME = 1500; //1500 ms (1,5 Seconds)
 
-        String One="Tiger";
-        String Two="Bear";
-        String Three="Dolphin";
-        String Four="Dog";
-        String Five="Cat";
-        String Six="Elephant";
-        String Seven="Lion";
-        String Eight="Horse";
+        String One = "Tiger";
+        String Two = "Bear";
+        String Three = "Dolphin";
+        String Four = "Dog";
+        String Five = "Cat";
+        String Six = "Elephant";
+        String Seven = "Lion";
+        String Eight = "Horse";
 
-        if(questionNo==1 && answer==One)
-        {
+        if (questionNo == 1 && answer == One) {
             questionPic.setImageResource(R.drawable.right);
             Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show();
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.rightanswer);
@@ -454,8 +439,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if(questionNo==2 && answer==Two)
-        {
+        if (questionNo == 2 && answer == Two) {
             questionPic.setImageResource(R.drawable.right);
             Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show();
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.rightanswer);
@@ -478,8 +462,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if(questionNo==3 && answer==Three)
-        {
+        if (questionNo == 3 && answer == Three) {
             questionPic.setImageResource(R.drawable.right);
             Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show();
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.rightanswer);
@@ -502,8 +485,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if(questionNo==4 && answer==Four)
-        {
+        if (questionNo == 4 && answer == Four) {
             questionPic.setImageResource(R.drawable.right);
             Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show();
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.rightanswer);
@@ -526,8 +508,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if(questionNo==5 && answer==Five)
-        {
+        if (questionNo == 5 && answer == Five) {
             questionPic.setImageResource(R.drawable.right);
             Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show();
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.rightanswer);
@@ -550,8 +531,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if(questionNo==6 && answer==Six)
-        {
+        if (questionNo == 6 && answer == Six) {
             questionPic.setImageResource(R.drawable.right);
             Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show();
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.rightanswer);
@@ -574,8 +554,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if(questionNo==7 && answer==Seven)
-        {
+        if (questionNo == 7 && answer == Seven) {
             questionPic.setImageResource(R.drawable.right);
             Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show();
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.rightanswer);
@@ -597,8 +576,7 @@ public class MainActivity extends AppCompatActivity {
             return;
 
         }
-        if(questionNo==8 && answer==Eight)
-        {
+        if (questionNo == 8 && answer == Eight) {
             questionPic.setImageResource(R.drawable.right);
             Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show();
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.rightanswer);
@@ -619,9 +597,7 @@ public class MainActivity extends AppCompatActivity {
             }, TIME);
             return;
 
-        }
-        else
-        {
+        } else {
             questionPic.setImageResource(R.drawable.wrong);
             Toast.makeText(this, "Wrong Answer", Toast.LENGTH_SHORT).show();
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.wronganswer);
@@ -643,8 +619,6 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-
     }
-
 
 }

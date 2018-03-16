@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,20 +28,9 @@
 
         <Button
             android:id="@+id/start_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="56dp"
-            android:layout_weight="0"
-            android:background="#C6863C"
+            style="@style/start_button"
             android:onClick="startGame"
-            android:paddingBottom="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingTop="8dp"
-            android:text="@string/start"
-            android:textSize="54sp"
-            android:visibility="visible" />
+            android:text="@string/start" />
 
         <ImageView
             android:id="@+id/logo_view"
@@ -96,59 +84,29 @@
 
             <Button
                 android:id="@+id/answerA_button"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
-                android:gravity="center_vertical"
+                style="@style/answer_A_button"
                 android:onClick="answerA"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:text="@string/tiger"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:text="@string/tiger" />
 
             <Button
                 android:id="@+id/answerB_button"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
-                android:gravity="center_vertical"
+                style="@style/answer_B_button"
                 android:onClick="answerB"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:text="@string/elephant"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:text="@string/elephant" />
 
             <Button
                 android:id="@+id/answerC__button"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
-                android:gravity="center_vertical"
+                style="@style/answer_C_button"
                 android:onClick="answerC"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:text="@string/dolphin"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:text="@string/dolphin" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/sound_button"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
+            style="@style/sound_button"
             android:onClick="soundOfAnimal"
-            android:paddingBottom="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingTop="8dp"
-            android:text="@string/sound"
-            android:textSize="14sp"
-            android:visibility="visible" />
+            android:text="@string/sound" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -161,13 +119,8 @@
 
             <Button
                 android:id="@+id/previous_button"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                style="@style/previous_button"
                 android:onClick="previousPicture"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingTop="8dp"
                 android:text="@string/previous" />
 
             <TextView
@@ -184,13 +137,8 @@
 
             <Button
                 android:id="@+id/next_button"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                style="@style/next_button"
                 android:onClick="nextPicture"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingTop="8dp"
                 android:text="@string/next" />
 
         </LinearLayout>
@@ -204,7 +152,7 @@
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -236,32 +184,35 @@
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/congratulations"
             android:visibility="visible" />
 
+        <TextView
+            android:id="@+id/final_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/result_share_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/share_score_button"
             android:onClick="sendMail"
-            android:text="@string/share_your_score"
-            android:textSize="24sp"
-            android:visibility="visible" />
+            android:text="@string/share_your_score" />
 
         <Button
             android:id="@+id/start_over_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            style="@style/start_over_button"
             android:onClick="startGame"
-            android:text="@string/try_again"
-            android:textSize="24sp"
-            android:visibility="visible" />
+            android:text="@string/try_again" />
 
     </LinearLayout>
 
