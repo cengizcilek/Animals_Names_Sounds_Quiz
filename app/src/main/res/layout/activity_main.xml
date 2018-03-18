@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.cengizcilek.animals_names_sounds_quiz.MainActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.cengizcilek.animals_names_sounds_quiz.MainActivity">
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
 
     <LinearLayout
         android:id="@+id/opening_screen"
@@ -35,7 +41,7 @@
         <ImageView
             android:id="@+id/logo_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="220dp"
             android:scaleType="fitXY"
             android:src="@drawable/animalslogo"
             android:visibility="visible" />
@@ -216,4 +222,6 @@
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
+
+</ScrollView>
